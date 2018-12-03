@@ -14,7 +14,7 @@ from datetime import datetime, timedelta, timezone
 import dateutil.parser
 import json
 import mds
-from mds.api import ProviderClient
+from mds.api import MultipleProviderClient
 from mds.db import ProviderDataLoader
 import mds.providers
 from mds.schema.validation import ProviderDataValidator
@@ -482,7 +482,7 @@ if __name__ == "__main__":
             p.headers = json.loads(headers)
 
     # initialize an API client for these providers and configuration
-    client = ProviderClient(providers)
+    client = MultipleProviderClient(providers)
 
     if args.status_changes:
         ingest(mds.STATUS_CHANGES, ref, args, client, db, start_time,
