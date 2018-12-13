@@ -135,6 +135,10 @@ E.g. if running at `12:45pm`, ingest data for `11:00am` to `12:00pm`.
 ingest/bin/hourly.sh [--providers [PROVIDER]] [--status_changes] [--trips] [OPTIONS]
 ```
 
+*N.B.*: When run as an hourly cron task, this script will systematically exclude
+trips if the provider API is compliant with MDS 0.2.x. This is intended as a
+demonstration, not as a production-ready polling solution.
+
 ### [`validate.sh`](bin/validate.sh)
 
 Validate a data feed, without saving or loading the data into the database.
